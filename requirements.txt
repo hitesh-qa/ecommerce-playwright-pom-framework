@@ -1,0 +1,8 @@
+playwright==1.44.0
+pytest==9.0.2
+pytest-playwright==0.5.1
+pytest-html==4.1.1
+pytest-xdist==3.5.0
+
+#ptest-html -> generates HTML reports
+#pytest-xdist -> runs tests in parallel
