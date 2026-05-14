@@ -1,6 +1,4 @@
 from pages.base_page import BasePage
-from test_data.data import PRODUCT_NAME, PRODUCT_PRICE
-
 
 class HomePage(BasePage):
     """Page object for the Home/Inventory page."""
@@ -8,7 +6,7 @@ class HomePage(BasePage):
 #-----------Locators----------
 PAGE_TITLE = ".title"
 PRODUCT_LIST = ".inventory_list"
-PRODUCT_ITEMS = ".inventory_items"
+PRODUCT_ITEMS = ".inventory_item"
 PRODUCT_NAMES = ".inventory_item_name"
 PRODUCT_PRICE = ".inventory_item_price"
 ADD_TO_CART_BUTTON ="button[data-test^='add-to-cart']"
@@ -25,11 +23,11 @@ def get_page_title(self):
 
 def get_all_product_names(self):
     """Return list of all product names."""
-    return self.page.locator(self.PRODUCT_NAMES).all_text_content()
+    return self.page.locator(self.PRODUCT_NAMES).all_text_contents()
 
 def get_all_product_prices(self):
     """Return list of all product prices."""
-    return self.page.locator(self.PRODUCT_PRICE).all_text_content()
+    return self.page.locator(self.PRODUCT_PRICE).all_text_contents()
 
 def add_first_product_to_cart(self):
     """Click Add to Cart on the first product."""
@@ -63,3 +61,10 @@ def logout(self):
 
 #------------Assertions---------------
 
+def is_home_page_loaded(self):
+    """Check if inventory page is loaded."""
+    return self.is_visible(self.PRODUCT_LIST)
+
+def is_cart_badge_visible(self):
+    """Check if cart badge is showing."""
+    return self.is_visible(self.CART_BADGE)
