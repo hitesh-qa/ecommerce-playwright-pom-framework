@@ -13,3 +13,28 @@ REMOVE_BUTTON = "button[data-test^='remove']"
 BACK_BUTTON = "#back-to-products"
 
 #------------Actions-------------
+def get_product_name(self):
+    """Return product name text."""
+    return self.get_text(self.PRODUCT_NAME)
+
+def get_product_price(self):
+    """Return product price text."""
+    return self.get_text(self.PRODUCT_PRICE)
+
+def get_product_description(self):
+    """Return product description text."""
+    return self.get_text(self.PRODUCT_DESC)
+
+def add_to_cart(self):
+    """Click Add to cart button."""
+    self.click(self.ADD_TO_CART_BUTTON)
+
+def remove_from_cart(self):
+    """Click Remove button."""
+    self.click(self.REMOVE_BUTTON)
+
+def go_back(self):
+    """Click back to products button."""
+    self.click(self.BACK_BUTTON)
+
+#-------------Assertions---------
