@@ -38,3 +38,15 @@ def go_back(self):
     self.click(self.BACK_BUTTON)
 
 #-------------Assertions---------
+
+def is_product_page_loaded(self):
+    """Check if product page is loaded."""
+    return self.is_visible(self.PRODUCT_NAME)
+
+def is_add_to_cart_visible(self):
+    """Check if Add to Cart button is visible."""
+    return self.is_visible(self.ADD_TO_CART_BUTTON)
+
+def is_remove_button_visible(self):
+    """Check if remove button is visible after adding."""
+    return self.is_visible(self.REMOVE_BUTTON)
