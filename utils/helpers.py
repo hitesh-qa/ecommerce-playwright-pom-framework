@@ -27,3 +27,42 @@ def ensure_reports_folder():
         print("Reports folder created")
 
 #----------wait Helpers-------------------
+
+@staticmethod
+@def wait(seconds: int):
+    """Pause execution for given seconds."""
+    time.sleep(seconds)
+
+#-------------String Helpers--------------
+@staticmethod
+def extract_price_value(price_str: str):
+    """Convert price string to float """
+    return float(price_str.replace("$", "").strip())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
