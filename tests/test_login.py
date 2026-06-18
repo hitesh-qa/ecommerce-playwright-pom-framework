@@ -41,3 +41,30 @@ def test_locked_out_user(self, login_page):
         "Error message not displayed for locked user."
     assert LOCKED_ERROR_MSG in login_page.get_error_message(), \
         "Wrong error message for locked user."
+
+@pytest.mark.regression
+@pytest.mark.login
+def test_empty_username(self, login_page):
+    """Test login with empty username shows error."""
+    login_page.open()
+    login_page.login("", INVALID_PASSWORD)
+    assert login_page.is_error_visible(), \
+    "Error message not displayed for empty username."
+
+@pytest.mark.regression
+@pytest.mark.login
+def test_empty_password(self, login_page):
+    """Test login with empty password shows error."""
+    login_page.open()
+    login_page.login( INVALID_USERNAME, "")
+    assert login_page.is_error_visible(), \
+    "Error message not displayed for empty password."
+
+@pytest.mark.regression
+@pytest.mark.login
+def test_empty_both_fields(self, login_page):
+    """Test login with both fields empty shows error."""
+    login_page.open()
+    login_page.login( "", "")
+    assert login_page.is_error_visible(), \
+    "Error message not displayed for empty username."
