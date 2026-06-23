@@ -50,36 +50,35 @@ def test_sort_products_a_to_z(self, login_page, home_page):
     assert Helpers.is_names_sorted_a_to_z(names), \
         "Products not sorted A to Z"
 
+@pytest.mark.regression
+@pytest.mark.products
+def test_sort_products_price_low_to_high(self, login_page, home_page):
+    """Test products sort by price low to high."""
+    login_page.open()
+    login_page.login(VALID_USERNAME, VALID_PASSWORD)
+    home_page.sort_products("lohi")
+    price = home_page.get_all_products_price()
+    assert Helpers.is_price_sorted_low_to_high(price), \
+        "Products not sorted by price low to high"
 
+@pytest.mark.regression
+@pytest.mark.products
+def test_add_product_to_cart_from_home(self, login_page, home_page):
+    """Test adding product to cart from home page."""
+    login_page.open()
+    login_page.login(VALID_USERNAME, VALID_PASSWORD)
+    home_page.add_product_by_name(PRODUCT_NAME)
+    assert home_page.get_cart_badge_visible(), \
+        "Cart badge not visible after adding product"
+    assert home_page.get_cart_count() == "1", \
+        "Cart count is not 1 after adding one product"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@pytest.mark.regression
+@pytest.mark.products
+def test_logout(self, login_page, home_page):
+    """Test user can logout successfully"""
+    login_page.open()
+    login_page.login(VALID_USERNAME, VALID_PASSWORD)
+    home_page.logout()
+    assert "saucedemo.com" in login_page.get_current_url(), \
+        "logout did not redirect to login page"
