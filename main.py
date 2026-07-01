@@ -34,3 +34,35 @@ def run_regression_test():
         "-v"
     ])
 
+def run_login_test():
+    """Run only login tests."""
+    print("\n Running LOGIN tests...\n")
+    subprocess.run([
+        sys.executable, "-m", "pytest",
+        "test/test_login.py"
+        "--html=reports/login_report.html",
+        "--self-contained-html"
+        "-v"
+    ])
+
+def run_cart_tests():
+    """Run only cart tests."""
+    print("\n Running CART tests...\n")
+    subprocess.run([
+        sys.executable, "-m", "pytest",
+        "tests/test_cart.py",
+        "--html=reports/cart_report.html",
+        "--self-contained-html"
+        "-v"
+    ])
+
+def run_product_tests():
+    """Run only product tests."""
+    print("\n Running PRODUCT tests...\n")
+    subprocess.run([
+        sys.executable, "-m", "pytest",
+        "tests/test_product.py",
+        "--html=reports/product_report.html",
+        "-v"
+    ])
+
