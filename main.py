@@ -66,3 +66,32 @@ def run_product_tests():
         "-v"
     ])
 
+if __name__ == "__main__":
+    print("=" * 50)
+    print("     E-Commerce Playwright Automation Framework")
+    print("=" * 50)
+    print("\nSelect test suite to run:")
+    print("  1 - All Tests")
+    print("  2 - Smoke Tests")
+    print("  3 - Regression Tests")
+    print("  4 - Login Tests")
+    print("  5 - Cart Tests")
+    print("  6 - Product Tests")
+    print()
+
+    choice = input("Enter choice (1-6): ").strip()
+
+    if choice == "1":
+        run_all_test()
+    elif choice == "2":
+        run_smoke_test()
+    elif choice == "3":
+        run_regression_test()
+    elif choice == "4":
+        run_login_test()
+    elif choice == "5":
+        run_cart_tests()
+    elif choice == "6":
+        run_product_tests()
+    else:
+        print(" Invalid choice ! Please enter 1-6 ")
