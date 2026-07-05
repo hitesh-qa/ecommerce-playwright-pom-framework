@@ -1,7 +1,7 @@
 import subprocess
 import sys
 
-def run_all_test()
+def run_all_tests():
     """Run all tests with HTML report"""
     print("\n Running ALL tests...\n")
     subprocess.run([
@@ -12,7 +12,7 @@ def run_all_test()
         "-v"
     ])
 
-def run_smoke_test():
+def run_smoke_tests():
     """Run only smoke tests."""
     print("\n Running smoke tests...\n")
     subprocess.run([
@@ -23,7 +23,7 @@ def run_smoke_test():
         "-v"
     ])
 
-def run_regression_test():
+def run_regression_tests():
     """Run only regression tests."""
     print("\n Running REGRESSION tests...\n")
     subprocess.run([
@@ -34,7 +34,7 @@ def run_regression_test():
         "-v"
     ])
 
-def run_login_test():
+def run_login_tests():
     """Run only login tests."""
     print("\n Running LOGIN tests...\n")
     subprocess.run([
@@ -82,13 +82,13 @@ if __name__ == "__main__":
     choice = input("Enter choice (1-6): ").strip()
 
     if choice == "1":
-        run_all_test()
+        run_all_tests()
     elif choice == "2":
-        run_smoke_test()
+        run_smoke_tests()
     elif choice == "3":
-        run_regression_test()
+        run_regression_tests()
     elif choice == "4":
-        run_login_test()
+        run_login_tests()
     elif choice == "5":
         run_cart_tests()
     elif choice == "6":

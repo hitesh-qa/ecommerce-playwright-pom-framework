@@ -5,13 +5,10 @@ INVALID_USERNAME, INVALID_PASSWORD,
 LOCKED_USER,LOGIN_ERROR_MSG, LOCKED_ERROR_MSG
 )
 
-class TestLogin:
-    """Test cases for login functionality."""
-
 #------------Smoke Tests----------------
 @pytest.mark.smoke
 @pytest.mark.login
-def test_valid_login(self, login_page):
+def test_valid_login( login_page):
     """Test login with valid credentials."""
     login_page.open()
     login_page.login(VALID_USERNAME, VALID_PASSWORD)
@@ -20,7 +17,7 @@ def test_valid_login(self, login_page):
 
 @pytest.mark.smoke
 @pytest.mark.login
-def test_invalid_login(self, login_page):
+def test_invalid_login( login_page):
     """Test login with invalid credentials shows error."""
     login_page.open()
     login_page.login(INVALID_USERNAME, INVALID_PASSWORD)
@@ -33,7 +30,7 @@ def test_invalid_login(self, login_page):
 
 @pytest.mark.regression
 @pytest.mark.login
-def test_locked_out_user(self, login_page):
+def test_locked_out_user( login_page):
     """Test locked out user sees correct error."""
     login_page.open()
     login_page.login(LOCKED_USER, VALID_PASSWORD)
@@ -44,7 +41,7 @@ def test_locked_out_user(self, login_page):
 
 @pytest.mark.regression
 @pytest.mark.login
-def test_empty_username(self, login_page):
+def test_empty_username( login_page):
     """Test login with empty username shows error."""
     login_page.open()
     login_page.login("", INVALID_PASSWORD)
@@ -53,7 +50,7 @@ def test_empty_username(self, login_page):
 
 @pytest.mark.regression
 @pytest.mark.login
-def test_empty_password(self, login_page):
+def test_empty_password( login_page):
     """Test login with empty password shows error."""
     login_page.open()
     login_page.login( INVALID_USERNAME, "")
@@ -62,7 +59,7 @@ def test_empty_password(self, login_page):
 
 @pytest.mark.regression
 @pytest.mark.login
-def test_empty_both_fields(self, login_page):
+def test_empty_both_fields(login_page):
     """Test login with both fields empty shows error."""
     login_page.open()
     login_page.login( "", "")

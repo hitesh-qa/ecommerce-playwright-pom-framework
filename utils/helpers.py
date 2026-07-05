@@ -29,7 +29,7 @@ def ensure_reports_folder():
 #----------wait Helpers-------------------
 
 @staticmethod
-@def wait(seconds: int):
+def wait(seconds: int):
     """Pause execution for given seconds."""
     time.sleep(seconds)
 
