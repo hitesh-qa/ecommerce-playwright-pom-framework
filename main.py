@@ -1,74 +1,38 @@
 import subprocess
 import sys
+import os
+
+def run_tests(args):
+    cmd = [sys.executable, "-m", "pytest"] + args
+    subprocess.run(cmd, cwd=os.getcwd())
 
 def run_all_tests():
-    """Run all tests with HTML report"""
-    print("\n Running ALL tests...\n")
-    subprocess.run([
-        sys.executable, "-m", "pytest",
-        "test/",
-        "--html=report/report.html",
-        "--self-contained-html",
-        "-v"
-    ])
+    print("\n🚀 Running ALL tests...\n")
+    run_tests(["tests/", "--html=reports/report.html", "--self-contained-html", "--headed", "-v"])
 
 def run_smoke_tests():
-    """Run only smoke tests."""
-    print("\n Running smoke tests...\n")
-    subprocess.run([
-        "test/",
-        "-m", "smoke"
-        "--html=reports/smoke_report.html",
-        "--self-contained-html"
-        "-v"
-    ])
+    print("\n💨 Running SMOKE tests...\n")
+    run_tests(["tests/", "-m", "smoke", "--headed", "-v"])
 
 def run_regression_tests():
-    """Run only regression tests."""
-    print("\n Running REGRESSION tests...\n")
-    subprocess.run([
-        sys.executable, "-m", "pytest",
-        "test/",
-        "-m", "regression",
-        "--html=reports/regression_report.html",
-        "-v"
-    ])
+    print("\n🔁 Running REGRESSION tests...\n")
+    run_tests(["tests/", "-m", "regression", "--headed", "-v"])
 
 def run_login_tests():
-    """Run only login tests."""
-    print("\n Running LOGIN tests...\n")
-    subprocess.run([
-        sys.executable, "-m", "pytest",
-        "test/test_login.py"
-        "--html=reports/login_report.html",
-        "--self-contained-html"
-        "-v"
-    ])
+    print("\n🔐 Running LOGIN tests...\n")
+    run_tests(["tests/test_login.py", "--headed", "-v"])
 
 def run_cart_tests():
-    """Run only cart tests."""
-    print("\n Running CART tests...\n")
-    subprocess.run([
-        sys.executable, "-m", "pytest",
-        "tests/test_cart.py",
-        "--html=reports/cart_report.html",
-        "--self-contained-html"
-        "-v"
-    ])
+    print("\n🛒 Running CART tests...\n")
+    run_tests(["tests/test_cart.py", "--headed", "-v"])
 
 def run_product_tests():
-    """Run only product tests."""
-    print("\n Running PRODUCT tests...\n")
-    subprocess.run([
-        sys.executable, "-m", "pytest",
-        "tests/test_product.py",
-        "--html=reports/product_report.html",
-        "-v"
-    ])
+    print("\n📦 Running PRODUCT tests...\n")
+    run_tests(["tests/test_products.py", "--headed", "-v"])
 
 if __name__ == "__main__":
     print("=" * 50)
-    print("     E-Commerce Playwright Automation Framework")
+    print("   E-Commerce Playwright Automation Framework")
     print("=" * 50)
     print("\nSelect test suite to run:")
     print("  1 - All Tests")
@@ -94,4 +58,4 @@ if __name__ == "__main__":
     elif choice == "6":
         run_product_tests()
     else:
-        print(" Invalid choice ! Please enter 1-6 ")
+        print("❌ Invalid choice!")
