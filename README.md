@@ -77,6 +77,23 @@ python -m pytest tests/ -m login -v
 - HTML report generated at reports/report.html
 - Screenshots captured on test failure
 
+## Framework Features
+
+- **Page Object Model** - Separate page classes for maintainability
+- **Reusable fixtures** - conftest.py with shared browser and page setup
+- **Test markers** - Run smoke or regression tests separately
+- **Auto screenshots** - Captures screenshot on every test failure
+- **HTML reports** - Detailed test execution reports
+- **Test data module** - Centralized test data in test_data/data.py
+
+## Key Concepts Demonstrated
+- Playwright browser automation with python
+- POM design pattern implementation
+- pytest fixtures and conftest
+- Centralized test data management
+- Smoke and regression test separation 
+- Screenshot capture on failure
+
 ## 🌐 Application Under Test
 
 [SauceDemo](https://www.saucedemo.com) - A demo e-commerce application used for automation practice.
